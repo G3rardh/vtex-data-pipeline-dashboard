@@ -1,112 +1,108 @@
-VTEX Data Pipeline & Analytics Dashboard
-Overview
+# VTEX Data Pipeline & Analytics Dashboard
+
+## Overview
 
 End-to-end data pipeline designed to extract operational and configuration data from VTEX APIs, store it in PostgreSQL, transform JSON responses directly in the database, and visualize insights through Power BI dashboards.
 
-Objective
+---
+
+## Objective
 
 Centralize logistics and operational data to monitor configurations, detect inconsistencies, and eliminate manual validation processes performed through the VTEX web interface.
 
-Architecture
+---
+
+## Architecture
 
 VTEX API → Python Connector → PostgreSQL (ETL & Data Warehouse) → Power BI
 
-Data Sources
+---
 
-Warehouses
+## Data Sources
 
-Docks
+* Warehouses
+* Docks
+* Carriers
+* Orders
+* Order Details
+* External Pickup Points
 
-Carriers
+---
 
-Orders
-
-Order Details
-
-External Pickup Points
-
-Database Design
+## Database Design
 
 The PostgreSQL layer handles:
 
-Raw API storage
-
-JSON parsing and normalization
-
-Data validation rules
-
-Monitoring tables
+* Raw API storage
+* JSON parsing and normalization
+* Data validation rules
+* Monitoring tables
 
 Control tables implemented:
 
-load_log → tracks refresh history
+* load_log → tracks refresh history
+* error_log → stores API/load errors
+* sync_status → monitors API sync health
 
-error_log → stores API/load errors
+---
 
-sync_status → monitors API sync health
-
-Transformations
+## Transformations
 
 Performed directly in PostgreSQL:
 
-JSON field extraction
+* JSON field extraction
+* Data normalization
+* Duplicate detection
+* Cross-validation (warehouses vs branches)
+* Status validation for active/inactive entities
 
-Data normalization
+---
 
-Duplicate detection
-
-Cross-validation (warehouses vs branches)
-
-Status validation for active/inactive entities
-
-Dashboards
+## Dashboards
 
 Power BI dashboards designed for operational monitoring:
 
-Logistics configuration overview
+* Logistics configuration overview
+* Warehouse status tracker
+* Order performance metrics
+* Data sync monitoring panel
 
-Warehouse status tracker
+---
 
-Order performance metrics
-
-Data sync monitoring panel
-
-Current Status
+## Current Status
 
 Project in active development.
 Complementary datasets currently being integrated:
 
-Branches table
+* Branches table
+* Ubigeos table
+* External pickup point data
 
-Ubigeos table
+---
 
-External pickup point data
+## Business Value
 
-Business Value
+* Reduces manual configuration audits
+* Detects outdated or test configurations
+* Centralizes operational visibility
+* Enables faster decision-making
 
-Reduces manual configuration audits
+---
 
-Detects outdated or test configurations
+## Tech Stack
 
-Centralizes operational visibility
+* PostgreSQL
+* Python
+* Power BI
+* SQL
+* REST APIs
 
-Enables faster decision-making
+---
 
-Tech Stack
+## Author
 
-PostgreSQL
-
-Python
-
-Power BI
-
-SQL
-
-REST APIs
-
-Author
-
-Gerardo Espinoza
+**Gerardo Espinoza**
 Industrial Engineer — Data & BI Specialist
 Lima, Peru
 Open to opportunities | Freelance projects
+
